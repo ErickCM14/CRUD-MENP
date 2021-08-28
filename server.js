@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const { MongoClient } = require("mongodb")//.MongoClient;
-const port = 3000;
+const port = process.env.PORT || 3000;
 let bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
@@ -15,7 +15,7 @@ MongoClient.connect('mongodb://localhost/CrudMENP', { useNewUrlParser: true, use
     collection = db.collection('usuario')
 })
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("Puerto " + port + " listo para funcionar");
 });
 
